@@ -49,7 +49,7 @@ static int lept_parse_null(lept_context* c, lept_value* v) {
 
 static int lept_parse_literal(lept_context* c, lept_value* v,
                               const char* literal, lept_type parsed_type) {
-    int i = 0;
+    size_t i = 0;
     for (; literal[i] != '\0'; ++i) {
         if (*(c->json) != literal[i]) {
             return LEPT_PARSE_INVALID_VALUE;
@@ -62,7 +62,6 @@ static int lept_parse_literal(lept_context* c, lept_value* v,
 
 static int lept_parse_number(lept_context* c, lept_value* v) {
     char* end;
-    /* \TODO validate number */
     regex_t regex;
     int regi;
 
